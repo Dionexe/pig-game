@@ -5,7 +5,7 @@ import HighScores from './HighScores';
 import "../styles.css";
 
 const Game = () => {
-    const maxScore = 50;  // Constant value for max score
+    const [maxScore, setMaxScore] = useState(50); 
     const [players, setPlayers] = useState([]);
     const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
     const [currentScore, setCurrentScore] = useState(0);
@@ -26,11 +26,12 @@ const Game = () => {
         }
     };
 
-    const startGame = (playerNames) => {
+    const startGame = (playerNames, maxScore) => {
         setPlayers(playerNames);
         setPlayerScores(Array(playerNames.length).fill(0));
         setCurrentPlayerIndex(0);
         setCurrentScore(0);
+        setMaxScore(maxScore);  
         setGameStarted(true);
     };
 
