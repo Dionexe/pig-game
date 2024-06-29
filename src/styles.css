@@ -54,3 +54,12 @@ input {
   color: #B9D6F2;
   font-size: 14px;
 }
+
+.high-scores ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.high-scores li {
+  margin: 5px 0;
+}
