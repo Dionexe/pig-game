@@ -16,6 +16,11 @@ const pool = new Pool({
     port: process.env.PG_PORT,
 });
 
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com");
+    next();
+});
+
 app.get('/high-scores', async (req, res) => {
     try {
         const result = await pool.query('SELECT player_name, score FROM scores ORDER BY score DESC LIMIT 3');
