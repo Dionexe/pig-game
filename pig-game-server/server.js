@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 require('dotenv').config();
+const path = require ('path')
 
 const app = express();
 app.use(cors());
@@ -13,7 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 const pool = new Pool({
     user: process.env.PG_USER,
@@ -43,6 +44,10 @@ app.post('/high-scores', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
+app.get('/', async (req, res) => {
+    return res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 app.listen(5001, () => {
     console.log('Server is running on port 5001');
