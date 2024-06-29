@@ -19,7 +19,7 @@ const Game = () => {
 
     const fetchHighScores = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/high-scores');
+            const response = await axios.get('/high-scores');
             setHighScores(response.data);
         } catch (error) {
             console.error('Error fetching high scores:', error);
@@ -62,7 +62,7 @@ const Game = () => {
 
     const handleWin = async (winnerName, winnerScore) => {
         try {
-            await axios.post('http://localhost:5001/high-scores', {
+            await axios.post('/high-scores', {
                 player_name: winnerName,
                 score: winnerScore
             });
