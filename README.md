@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple web-based game built using React and Node.js. The game allows players to roll dice and accumulate scores. The first player to reach a set maximum score wins the game. The top scores are stored in a PostgreSQL database and displayed on the high scores list.
 
-## Available Scripts
+File Descriptions
 
-In the project directory, you can run:
+Game.js
 
-### `npm start`
+	•	Description: This file contains the main game logic and user interface.
+	•	Key Components:
+	•	State Management: Manages the game state including the current score, player scores, and high scores.
+	•	Game Functions: Functions to start the game, roll the dice, end the turn, handle a win, and reset the game.
+	•	HighScores Component: Displays the top 3 high scores fetched from the server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+server.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+	•	Description: This file sets up the backend server using Express.js.
+	•	Key Features:
+	•	Middleware: Uses CORS and body-parser for handling requests.
+	•	Database Connection: Connects to a PostgreSQL database using the pg library.
+	•	Routes:
+	•	GET /high-scores: Fetches the top 3 high scores from the database.
+	•	POST /high-scores: Adds a new high score to the database.
+	•	GET /: Serves the static files for the frontend.
 
-### `npm test`
+HighScores.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	•	Description: This file contains the React component to display the high scores.
+	•	Key Features:
+	•	Props: Receives highScores as a prop to display the top 3 high scores.
+	•	Rendering: Displays the high scores in a list format.
 
-### `npm run build`
+Setup Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+	1.	Clone the repository:
+        git clone https://github.com/yourusername/yourrepository.git
+        cd yourrepository
+    
+    2.	Install dependencies:
+        npm install
+    
+    3.	Set up environment variables:
+		Create a .env file in the root directory with the following variables:
+        PG_USER=your_pg_user
+        PG_HOST=your_pg_host
+        PG_DATABASE=your_pg_database
+        PG_PASSWORD=your_pg_password
+        PG_PORT=your_pg_port
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    4.	Run the server:
+        nodemon server.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    5.	Run the frontend:
+		Navigate to the frontend directory and start the React application:
+        cd pig-game 
+        npm start
 
-### `npm run eject`
+Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+	•	Open your browser and navigate to http://localhost:3000.
+	•	Enter player names and set a maximum score to start the game.
+	•	Players take turns rolling the dice to accumulate scores.
+	•	The game ends when a player reaches the maximum score, and the winner’s score is saved to the high scores list.
+	•	The high scores list is displayed at the bottom of the game screen.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+	•	Frontend:
+	•	React
+	•	Axios
+	•	Backend:
+	•	Express.js
+	•	CORS
+	•	Body-parser
+	•	pg (node-postgres)
+	•	dotenv
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For any questions or issues, please contact [dw.execomputers@gmail.com]
