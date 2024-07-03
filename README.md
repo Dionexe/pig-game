@@ -65,16 +65,21 @@ Usage
 
 Dependencies
 
-	•	Frontend:
+	Frontend:
 	•	React
 	•	Axios
-	•	Backend:
+	Backend:
 	•	Express.js
 	•	CORS
 	•	Body-parser
 	•	pg (node-postgres)
 	•	dotenv
 
+Future Plans
+    •	Add a online multiplayer function so two people can play from two different computers in two seperate rooms
+	•	Add more dice games like a race or a turn based attack game
+	•	Add a 3d render of a dice that actually roll when you press the roll button
+	
 
 
 
