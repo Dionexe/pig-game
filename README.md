@@ -1,6 +1,7 @@
 Overview
 
 This project is a simple web-based game built using React and Node.js. The game allows players to roll dice and accumulate scores. The first player to reach a set maximum score wins the game. The top scores are stored in a PostgreSQL database and displayed on the high scores list.
+Here is a link to the deployed web application https://pig-game-9087.onrender.com
 
 File Descriptions
 
