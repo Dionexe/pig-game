@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PlayerForm from './PlayerForm';
 import HighScores from './HighScores';
+import SearchDeleteScore from './SearchDeleteScore'; // Import the new component
 import "../styles.css";
 
 const Game = () => {
@@ -86,7 +87,10 @@ const Game = () => {
     return (
         <div style={{ backgroundColor: '#061A40', color: '#B9D6F2', padding: '20px' }}>
             {!gameStarted ? (
-                <PlayerForm startGame={startGame} />
+                <>
+                    <PlayerForm startGame={startGame} />
+                    <SearchDeleteScore fetchHighScores={fetchHighScores} /> {/* Add the new component */}
+                </>
             ) : (
                 <>
                     <h1>{players[currentPlayerIndex]}'s turn</h1>
@@ -108,7 +112,6 @@ const Game = () => {
 };
 
 export default Game;
-
 
 
 
